@@ -31,9 +31,9 @@ reboot now
 
 ## リポジトリをClone
 ```
-git clone https://github.com/ryood/Django-LetsEncrypt-Docker.git pnpn
-password: <PAT>
+git clone https://github.com/ryood/Docker-Nginx-Django.git pnpn
 ```
+passwordはGithubのPAT
 
 ## 環境ファイルを作成
 ```
@@ -45,21 +45,20 @@ vi .env.http
 SECRET_KEY=SECRET_KEY_FOR_HTTP
 # ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
 ALLOWED_HOSTS=*
-# 公開環境のためFalse
-DEBUG=False
+# HTTPでのテストのためTrue
+DEBUG=True
 ```
 
 ## コンテナでDjangoのプロジェクトを作成
 ```
-rm manage.py
 docker compose -f docker-compose-http.yml run app django-admin startproject djangopj .
 ```
 
 ## 所有権変更
 ```
-sudo chown -R $USER:$USER djangopj manage.py static
+sudo chown -R $USER:$USER djangopj manage.py
 ```
-※所有権がrootになっているものがあればubuntuに変更
+
 ## Djangoの設定ファイルを編集
 ```
 vi djangopj/settings.py
