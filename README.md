@@ -27,7 +27,7 @@ nslookup <ホスト名>
 
 一般ユーザーでDockerが起動できることを確認
 ```
-docker run hello-world
+docker --version
 docker compose version
 ```
 OSを再起動 (一般ユーザーでDockerが起動しない場合)
