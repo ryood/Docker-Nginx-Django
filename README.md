@@ -60,6 +60,11 @@ sudo chown -R $USER:$USER djangopj manage.py
 ```
 
 ## Djangoの設定ファイルを編集
+examplesからsettings.pyをコピー
+```
+cp examples/settings.py djangopj/settings.py
+```
+または直接編集
 ```
 vi djangopj/settings.py
 ```
@@ -119,13 +124,13 @@ python manage.py createsuperuser
 docker ps
 docker compose -f docker-compose-http.yml down
 ```
-## DNS確認
 
 ## ドメイン名を設定
 「www2.pnpn.mfg.com」を置換
 ```
-docker/nginx/nginx.conf
+vi docker/nginx/nginx.conf
 ```
+
 ## Nginxのみ起動
 ```
 docker compose -f docker-compose-cert.yml up -d nginx
@@ -152,6 +157,11 @@ DEBUG=False
 ```
 
 ## HTTPS対応でコンテナを起動
+### 本番用にdocker-compose.ymlにシンボリックを貼る
+```
+ln -s docker-compose-https.yml docker-compose.yml
+```
+コンテナを起動
 ```
 docker compose up -d
 ```
