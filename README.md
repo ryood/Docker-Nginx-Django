@@ -8,12 +8,17 @@
 # HTTPでテスト
 
 ### サーバー起動
+AWS EC2やVPSなどパブリックIPアドレス必須
 
 ### DNS設定
+AWS Route53などDNSサーバでAレコードでホスト名とIPアドレスを紐づける
 
 ### DNS確認
 ```
 dig <ホスト名>
+```
+または
+```
 nslookup <ホスト名>
 ```
 
@@ -23,6 +28,7 @@ nslookup <ホスト名>
 一般ユーザーでDockerが起動できることを確認
 ```
 docker run hello-world
+docker compose version
 ```
 OSを再起動 (一般ユーザーでDockerが起動しない場合)
 ```
@@ -33,7 +39,6 @@ reboot now
 ```
 git clone https://github.com/ryood/Docker-Nginx-Django.git pnpn
 ```
-passwordはGithubのPAT
 
 ## 環境ファイルを作成
 ```
