@@ -180,8 +180,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 ```
 ```
-docker compose down
-docker compose up -d
+docker compose down && docker compose up -d
 ```
 
 <a id="RENEW"></a>
