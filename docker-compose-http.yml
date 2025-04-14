@@ -1,8 +1,10 @@
 services:
+
   app:
     build:
       context: .
       dockerfile: docker/django/Dockerfile
+    container_name: django
     expose:
       - "8000"
     command: sh -c "/code/entrypoint.sh"
@@ -11,8 +13,10 @@ services:
       - static:/static
     env_file:
       - .env.http
+
   nginx:
     image: nginx:latest
+    container_name: nginx
     ports:
       - 80:80
     volumes:
@@ -21,6 +25,7 @@ services:
       - static:/static
     depends_on:
       - app
+
 volumes:
   static:
     
