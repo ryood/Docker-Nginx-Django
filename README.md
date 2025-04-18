@@ -117,6 +117,10 @@ http://<ip-address>/
 ```
 ## スーパーユーザー作成
 ```
+docker compose -f docker-compose-http.yml exec app python manage.py createsuperuser
+```
+または
+```
 docker ps
 docker exec -it <container-id> /bin/bash
 python manage.py createsuperuser
